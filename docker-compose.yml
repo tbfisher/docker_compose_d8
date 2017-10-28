@@ -2,7 +2,7 @@ version: "2"
 
 services:
   mariadb:
-    image: wodby/mariadb:10.1-2.3.3
+    image: wodby/mariadb:10.1
     env_file: .env
     environment:
       MYSQL_ROOT_PASSWORD: password
@@ -16,7 +16,7 @@ services:
 #      - ./mariadb-init:/docker-entrypoint-initdb.d
 
   php:
-    image: wodby/drupal-php:7.0-2.4.3
+    image: wodby/drupal-php:7.1
     env_file: .env
     environment:
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
@@ -29,7 +29,7 @@ services:
       - ./:/var/www/html:cached
 
   nginx:
-    image: wodby/drupal-nginx:8-1.13-2.4.2
+    image: wodby/drupal-nginx:8-1.13
     depends_on:
       - php
     environment:
@@ -58,6 +58,7 @@ services:
       - '80:80'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+
 volumes:
   mysqldata:
     driver: "local"

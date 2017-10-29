@@ -121,6 +121,24 @@ and run up again to rebuild containers
 docker-compose up -d
 ```
 
+## Logging
+
+```bash
+# all logs
+docker-compose logs
+# just php
+docker-compose logs php
+# follow (stream log to stdout)
+docker-compose logs -f
+```
+
+To include watchdog in the php container log output, install the [log_stdout module](https://www.drupal.org/project/log_stdout) into your project.
+
+```bash
+composer require drupal/log_stdout --dev
+drush -y en log_stdout
+```
+
 # destroy docker instance
 
 ```bash

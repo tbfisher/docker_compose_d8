@@ -139,11 +139,20 @@ composer require drupal/log_stdout --dev
 drush -y en log_stdout
 ```
 
-# destroy docker instance
+# Clean up
+
+Delete containers. `-v` will also delete volumes (database files).
 
 ```bash
 $ docker-compose down -v
 ```
+
+Delete all build artifacts (code).
+
+```bash
+$ rm -rf vendor/ web/ composer.lock
+```
+
 # ssh your docker image
 
 nginx

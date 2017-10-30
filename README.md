@@ -150,7 +150,7 @@ $ docker-compose down -v
 Delete all build artifacts (code).
 
 ```bash
-$ rm -rf vendor/ web/ composer.lock
+$ chmod -R +w web/ && rm -rf config/ vendor/ web/ composer.lock
 ```
 
 # ssh your docker image
